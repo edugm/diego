@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?php echo $locale === 'val' ? 'ca' : 'es'; ?>">
+<html lang="<?php echo $locale === 'en' ? 'en' : 'es'; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,14 +23,14 @@
     <title><?php echo htmlspecialchars($t['site_title']); ?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/style.css?v=20260625">
 </head>
 <body>
     <header class="main-header">
         <div class="container">
             <div class="logo">
-                <a href="<?php echo $locale === 'val' ? './' : './'; ?>">
+                <a href="<?php echo $home_url; ?>">
                     <img src="/assets/images/logo-negro-texto.png" alt="Logo de la Empresa">
                 </a>
             </div>
@@ -39,20 +39,20 @@
             </button>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="<?php echo $locale === 'val' ? './' : './'; ?>"><?php echo $t['nav_home']; ?></a></li>
-                    <li><a href="<?php echo $locale === 'val' ? './#el-problema' : './#el-problema'; ?>"><?php echo $t['nav_problem']; ?></a></li>
-                    <li><a href="<?php echo $locale === 'val' ? './#la-propuesta' : './#la-propuesta'; ?>"><?php echo $t['nav_proposal']; ?></a></li>
-                    <li><a href="<?php echo $locale === 'val' ? './#beneficios' : './#beneficios'; ?>"><?php echo $t['nav_benefits']; ?></a></li>
-                    <li><a href="<?php echo $locale === 'val' ? './#clases' : './#clases'; ?>"><?php echo $t['nav_classes']; ?></a></li>
-                    <li><a href="<?php echo $locale === 'val' ? './#para-quien' : './#para-quien'; ?>"><?php echo $t['nav_audience']; ?></a></li>
-                    <li><a href="<?php echo $locale === 'val' ? './#filosofia' : './#filosofia'; ?>"><?php echo $t['nav_philosophy']; ?></a></li>
-                    <li><a href="<?php echo $locale === 'val' ? './quienes-somos.php' : 'quienes-somos.php'; ?>"><?php echo $t['nav_about']; ?></a></li>
+                    <li><a href="<?php echo $home_url; ?>"><?php echo $t['nav_home']; ?></a></li>
+                    <li><a href="<?php echo $home_url; ?>#el-problema"><?php echo $t['nav_problem']; ?></a></li>
+                    <li><a href="<?php echo $home_url; ?>#la-propuesta"><?php echo $t['nav_proposal']; ?></a></li>
+                    <li><a href="<?php echo $home_url; ?>#beneficios"><?php echo $t['nav_benefits']; ?></a></li>
+                    <li><a href="<?php echo $home_url; ?>#clases"><?php echo $t['nav_classes']; ?></a></li>
+                    <li><a href="<?php echo $home_url; ?>#para-quien"><?php echo $t['nav_audience']; ?></a></li>
+                    <li><a href="<?php echo $home_url; ?>#filosofia"><?php echo $t['nav_philosophy']; ?></a></li>
+                    <li><a href="<?php echo $about_url; ?>"><?php echo $t['nav_about']; ?></a></li>
                     <li class="lang-switch">
                         <a class="lang-switch__btn <?php echo $locale === 'es' ? 'is-active' : ''; ?>" href="/" aria-label="Cambiar a español" title="Español">
                             <span class="lang-switch__flag lang-switch__flag--es" aria-hidden="true"></span>
                         </a>
-                        <a class="lang-switch__btn <?php echo $locale === 'val' ? 'is-active' : ''; ?>" href="/val/" aria-label="Canviar a valencià" title="Valencià">
-                            <span class="lang-switch__flag lang-switch__flag--val" aria-hidden="true"></span>
+                        <a class="lang-switch__btn <?php echo $locale === 'en' ? 'is-active' : ''; ?>" href="/en/" aria-label="Switch to English" title="English">
+                            <span class="lang-switch__flag lang-switch__flag--en" aria-hidden="true"></span>
                         </a>
                     </li>
                 </ul>
