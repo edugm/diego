@@ -1,4 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const mainHeader = document.querySelector(".main-header");
+
+  if (mainHeader) {
+    const updateHeaderState = () => {
+      mainHeader.classList.toggle("is-scrolled", window.scrollY > 12);
+    };
+
+    updateHeaderState();
+    window.addEventListener("scroll", updateHeaderState, { passive: true });
+  }
+
   const navToggle = document.querySelector(".nav-toggle");
   const mainNav = document.querySelector(".main-nav");
   const currentBenefit = document.querySelector(".benefit-current");

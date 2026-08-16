@@ -24,7 +24,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/style.css?v=20260625">
+    <?php
+        $isDevelopment = isset($_SERVER['HTTP_HOST']) && in_array($_SERVER['HTTP_HOST'], ['localhost', '127.0.0.1'], true);
+        $cssHref = $isDevelopment ? '/assets/style.css' : '/assets/style.css?v=20260625';
+    ?>
+    <link rel="stylesheet" href="<?php echo htmlspecialchars($cssHref); ?>">
     <link rel="stylesheet" href="/assets/vendor/flatpickr.min.css">
 </head>
 <body>
@@ -40,14 +44,8 @@
             </button>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="<?php echo $home_url; ?>"><?php echo $t['nav_home']; ?></a></li>
-                    <li><a href="<?php echo $home_url; ?>#el-problema"><?php echo $t['nav_problem']; ?></a></li>
-                    <li><a href="<?php echo $home_url; ?>#la-propuesta"><?php echo $t['nav_proposal']; ?></a></li>
-                    <li><a href="<?php echo $home_url; ?>#beneficios"><?php echo $t['nav_benefits']; ?></a></li>
-                    <li><a href="<?php echo $home_url; ?>#clases"><?php echo $t['nav_classes']; ?></a></li>
-                    <li><a href="<?php echo $home_url; ?>#para-quien"><?php echo $t['nav_audience']; ?></a></li>
-                    <li><a href="<?php echo $home_url; ?>#filosofia"><?php echo $t['nav_philosophy']; ?></a></li>
-                    <li><a href="<?php echo $about_url; ?>"><?php echo $t['nav_about']; ?></a></li>
+                    <li><a href="#clases"><?php echo $t['nav_classes']; ?></a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                     <li class="lang-switch">
                         <a class="lang-switch__btn <?php echo $locale === 'es' ? 'is-active' : ''; ?>" href="/" aria-label="Cambiar a español" title="Español">
                             <span class="lang-switch__flag lang-switch__flag--es" aria-hidden="true"></span>

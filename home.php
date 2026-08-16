@@ -110,24 +110,24 @@ include __DIR__ . '/includes/header.php';
     <section class="hero">
         <div class="container hero-content">
             <p class="eyebrow"><?php echo $t['eyebrow_location']; ?></p>
-            <h1><?php echo $t['hero_title']; ?></h1>
-            <p class="hero-copy"><?php echo $t['hero_copy']; ?></p>
+            <h1 class="hero-title" aria-label="<?php echo htmlspecialchars($t['hero_title']); ?>">
+                <span class="hero-title__rotator" aria-live="polite">
+                    <span class="hero-title__word">Movimiento</span>
+                    <span class="hero-title__word">Fuerza</span>
+                    <span class="hero-title__word">Atención</span>
+                </span>
+                <span class="hero-title__suffix">para vivir con más energía</span>
+            </h1>
             <p class="hero-strap"><?php echo str_replace('energía', '<span class="text-accent">energía</span>', $t['hero_strap']); ?></p>
             <div class="hero-actions">
                 <a href="#contacto" class="btn hero-reserve-btn"><?php echo $t['hero_cta_primary']; ?></a>
                 <a href="#clases" class="btn btn--ghost"><?php echo $t['hero_cta_secondary']; ?></a>
             </div>
-            <div class="hero-highlights">
-                <div class="hero-highlight">
-                    <strong><?php echo $t['highlight_one_title']; ?></strong>
-                    <span><?php echo $t['highlight_one_text']; ?></span>
-                </div>
-                <div class="hero-highlight">
-                    <strong><?php echo $t['highlight_two_title']; ?></strong>
-                    <span><?php echo $t['highlight_two_text']; ?></span>
-                </div>
-            </div>
         </div>
+        <a href="#el-problema" class="hero-scroll" aria-label="Descubrir más abajo">
+            <span class="hero-scroll__icon" aria-hidden="true">↓</span>
+            <span class="hero-scroll__text">descubrir</span>
+        </a>
     </section>
 
     <section id="el-problema" class="section section-alt">

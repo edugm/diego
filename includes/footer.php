@@ -71,6 +71,10 @@
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="/assets/vendor/flatpickr.min.js" defer></script>
-    <script src="/assets/main.js?v=20260720" defer></script>
+    <?php
+        $isDevelopment = isset($_SERVER['HTTP_HOST']) && in_array($_SERVER['HTTP_HOST'], ['localhost', '127.0.0.1'], true);
+        $jsSrc = $isDevelopment ? '/assets/main.js' : '/assets/main.js?v=20260720';
+    ?>
+    <script src="<?php echo htmlspecialchars($jsSrc); ?>" defer></script>
 </body>
 </html>
