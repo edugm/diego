@@ -25,6 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/style.css?v=20260625">
+    <link rel="stylesheet" href="/assets/vendor/flatpickr.min.css">
 </head>
 <body>
     <header class="main-header">

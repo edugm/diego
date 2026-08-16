@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Local env files
+.env
+
+# MacOS
+.DS_Store
+
+# IDE files
+.vscode/
+
+# PHP dependencies (composer will handle install)
+vendor/
+composer.lock
+
+# Node dependencies
+package-lock.json
+
+# Environment
+.env.local
+.env.*.local

@@ -1,6 +1,108 @@
 <?php
 $locale = isset($locale) ? $locale : 'es';
 include __DIR__ . '/includes/locale.php';
+
+$formStatus = null;
+$formMessage = '';
+$recipientEmail = 'paya.diego@gmail.com';
+
+require_once __DIR__ . '/includes/phpmailer.php';
+
+function sanitizeFormValue($value)
+{
+    return trim(strip_tags($value));
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
+    $secretKey = '6Lc830stAAAAALZRO8nb37va-4NRswrkqoeTXqJo';
+
+    if (!$recaptchaResponse) {
+        $formStatus = 'error';
+        $formMessage = 'Completa el captcha antes de enviar el formulario.';
+    } else {
+        $verifyUrl = 'https://www.google.com/recaptcha/api/siteverify';
+        $data = http_build_query([
+            'secret' => $secretKey,
+            'response' => $recaptchaResponse,
+            'remoteip' => $_SERVER['REMOTE_ADDR'] ?? '',
+        ]);
+
+        $options = [
+            'http' => [
+                'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method' => 'POST',
+                'content' => $data,
+                'timeout' => 10,
+            ],
+        ];
+
+        $context = stream_context_create($options);
+        $result = @file_get_contents($verifyUrl, false, $context);
+        $response = $result ? json_decode($result, true) : null;
+
+        if (!empty($response['success'])) {
+            $name = sanitizeFormValue($_POST['name'] ?? '');
+            $subject = sanitizeFormValue($_POST['subject'] ?? '');
+            $phone = sanitizeFormValue($_POST['phone'] ?? '');
+            $email = trim($_POST['email'] ?? '');
+            $classDate = sanitizeFormValue($_POST['class_date'] ?? '');
+            $classTime = sanitizeFormValue($_POST['class_time'] ?? '');
+
+            $errors = [];
+
+            if ($name === '') {
+                $errors[] = 'El nombre es obligatorio.';
+            }
+
+            if ($subject === '') {
+                $errors[] = 'El asunto es obligatorio.';
+            }
+
+            if ($phone === '') {
+                $errors[] = 'El teléfono es obligatorio.';
+            }
+
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $errors[] = 'Introduce un email válido.';
+            }
+
+            if ($classDate === '') {
+                $errors[] = 'Selecciona un día para la clase.';
+            }
+
+            if ($classTime === '') {
+                $errors[] = 'Selecciona una hora para la clase.';
+            }
+
+            if ($errors) {
+                $formStatus = 'error';
+                $formMessage = implode(' ', $errors);
+            } else {
+                $sendResult = sendContactEmail([
+                    'subject' => $subject,
+                    'name' => $name,
+                    'phone' => $phone,
+                    'email' => $email,
+                    'class_date' => $classDate,
+                    'class_time' => $classTime,
+                ]);
+
+                if ($sendResult['success']) {
+                    $formStatus = 'success';
+                    $formMessage = $sendResult['message'];
+                } else {
+                    $formStatus = 'error';
+                    $formMessage = $sendResult['message'];
+                }
+            }
+        } else {
+            $formStatus = 'error';
+            $formMessage = 'Error en la verificación del captcha. Intenta de nuevo.';
+        }
+    }
+}
+
 include __DIR__ . '/includes/header.php';
 ?>
 
@@ -12,7 +114,7 @@ include __DIR__ . '/includes/header.php';
             <p class="hero-copy"><?php echo $t['hero_copy']; ?></p>
             <p class="hero-strap"><?php echo str_replace('energía', '<span class="text-accent">energía</span>', $t['hero_strap']); ?></p>
             <div class="hero-actions">
-                <a href="#el-problema" class="btn"><?php echo $t['hero_cta_primary']; ?></a>
+                <a href="#contacto" class="btn hero-reserve-btn"><?php echo $t['hero_cta_primary']; ?></a>
                 <a href="#clases" class="btn btn--ghost"><?php echo $t['hero_cta_secondary']; ?></a>
             </div>
             <div class="hero-highlights">
