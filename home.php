@@ -124,32 +124,28 @@ include __DIR__ . '/includes/header.php';
                 <a href="#clases" class="btn btn--ghost"><?php echo $t['hero_cta_secondary']; ?></a>
             </div>
         </div>
-        <a href="#el-problema" class="hero-scroll" aria-label="Descubrir más abajo">
+        <a href="#la-propuesta" class="hero-scroll" aria-label="Descubrir más abajo">
             <span class="hero-scroll__icon" aria-hidden="true">↓</span>
             <span class="hero-scroll__text">descubrir</span>
         </a>
     </section>
 
-    <section id="el-problema" class="section section-alt">
-        <div class="container split-layout">
-            <div class="section-copy">
-                <p class="eyebrow"><?php echo $t['problem_eyebrow']; ?></p>
-                <h2><?php echo $t['problem_title']; ?></h2>
-                <p><span class="text-accent"><?php echo $t['problem_intro']; ?></span></p>
-                <p><?php echo $t['problem_text_1']; ?></p>
-                <p><?php echo $t['problem_text_2']; ?></p>
-                <p><?php echo $t['problem_text_3']; ?></p>
-                <p><?php echo $t['problem_text_4']; ?></p>
-                <ul class="pill-grid">
-                    <li class="pill"><?php echo $t['pill_noise']; ?></li>
-                    <li class="pill"><?php echo $t['pill_sedentary']; ?></li>
-                    <li class="pill"><?php echo $t['pill_fatigue']; ?></li>
-                    <li class="pill"><?php echo $t['pill_tension']; ?></li>
-                </ul>
-            </div>
-            <div class="image-card">
-                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80" alt="Persona practicando movilidad y fuerza">
-            </div>
+    <section id="capacidad-vital" class="section vital-capacity-section">
+        <div class="container">
+            <article class="vital-capacity-card">
+                <div class="vital-capacity-card__content">
+                    <h2><?php echo $t['vital_capacity_title']; ?></h2>
+                    <p class="vital-capacity-card__lead"><?php echo $t['vital_capacity_intro']; ?></p>
+                    <div class="vital-capacity-card__details">
+                        <p class="vital-capacity-card__demands"><?php echo nl2br(htmlspecialchars(str_replace('\\n', "\n", $t['vital_capacity_demands']))); ?></p>
+                        <div class="vital-capacity-card__copy">
+                            <p><?php echo $t['vital_capacity_text_1']; ?></p>
+                            <p><?php echo $t['vital_capacity_text_2']; ?></p>
+                            <p><?php echo $t['vital_capacity_text_3']; ?></p>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
 
@@ -157,122 +153,251 @@ include __DIR__ . '/includes/header.php';
         <div class="container">
             <div class="section-heading">
                 <p class="eyebrow"><?php echo $t['proposal_eyebrow']; ?></p>
-                <h2><?php echo $t['proposal_title_1']; ?></h2>
-                <h2><?php echo $t['proposal_title_2']; ?></h2>
+                <h2><?php echo $t['proposal_intro']; ?></h2>
             </div>
-            <p><span class="text-accent"><?php echo $t['proposal_intro']; ?></span></p>
-            <p><?php echo $t['proposal_text_1']; ?></p>
-            <p><?php echo $t['proposal_text_2']; ?></p>
-            <p><?php echo $t['proposal_text_3']; ?></p>
-            <div class="feature-grid">
-                <article class="feature-card">
-                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=80" alt="Práctica de movilidad y control corporal">
-                    <div class="card-body">
-                        <h3><?php echo $t['proposal_card_1_title']; ?></h3>
-                        <p><?php echo $t['proposal_card_1_text']; ?></p>
+            
+            <div class="pillar-list">
+                <article class="pillar-card">
+                    <div class="pillar-card__content">
+                        <div class="pillar-card__intro">
+                            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1600&q=85" alt="Entrenamiento de fuerza">
+                            <h3><?php echo $t['proposal_card_1_title']; ?></h3>
+                            <p class="pillar-card__lead"><?php echo $t['proposal_card_1_lead']; ?></p>
+                        </div>
+                        <div class="pillar-card__copy">
+                            <p><?php echo $t['proposal_card_1_text_1']; ?></p>
+                            <p><?php echo $t['proposal_card_1_text_2']; ?></p>
+                            <p><?php echo $t['proposal_card_1_text_3']; ?></p>
+                            <p><?php echo $t['proposal_card_1_text_4']; ?></p>
+                        </div>
                     </div>
                 </article>
-                <article class="feature-card">
-                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80" alt="Persona en una práctica consciente de movimiento">
-                    <div class="card-body">
-                        <h3><?php echo $t['proposal_card_2_title']; ?></h3>
-                        <p><?php echo $t['proposal_card_2_text']; ?></p>
+                <article class="pillar-card">
+                    <div class="pillar-card__content">
+                        <div class="pillar-card__intro">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=85" alt="Práctica de movilidad y control corporal">
+                            <h3><?php echo $t['proposal_card_2_title']; ?></h3>
+                            <p class="pillar-card__lead"><?php echo $t['proposal_card_2_lead']; ?></p>
+                        </div>
+                        <div class="pillar-card__copy">
+                            <p><?php echo $t['proposal_card_2_text_1']; ?></p>
+                            <p><?php echo $t['proposal_card_2_text_2']; ?></p>
+                            <p><?php echo $t['proposal_card_2_text_3']; ?></p>
+                            <p><?php echo $t['proposal_card_2_text_4']; ?></p>
+                            <p><?php echo $t['proposal_card_2_text_5']; ?></p>
+                        </div>
+                    </div>
+                </article>
+                <article class="pillar-card">
+                    <div class="pillar-card__content">
+                        <div class="pillar-card__intro">
+                            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1600&q=85" alt="Persona practicando atención corporal">
+                            <h3><?php echo $t['proposal_card_3_title']; ?></h3>
+                            <p class="pillar-card__lead"><?php echo $t['proposal_card_3_lead']; ?></p>
+                        </div>
+                        <div class="pillar-card__copy">
+                            <p><?php echo $t['proposal_card_3_text_1']; ?></p>
+                            <p class="pillar-card__perception"><?php echo nl2br(htmlspecialchars(str_replace('\\n', "\n", $t['proposal_card_3_text_2']))); ?></p>
+                            <p><?php echo $t['proposal_card_3_text_3']; ?></p>
+                        </div>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <section id="beneficios" class="section section-alt">
-        <div class="container">
-            <div class="section-heading">
-                <p class="eyebrow"><?php echo $t['benefits_eyebrow']; ?></p>
-                <h2><?php echo $t['benefits_title']; ?></h2>
-            </div>
-            <div class="benefits-panel">
-                <div class="benefits-visual">
-                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=80" alt="Persona trabajando movilidad y respiración en un entorno sereno">
-                </div>
-                <div class="benefits-list">
-                    <div class="benefits-list__line" aria-live="polite">
-                        <span class="benefit-prefix"><?php echo $t['benefits_prefix']; ?></span>
-                        <span class="benefit-current"><?php echo $t['benefits_current']; ?></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="clases" class="section">
+     <section id="clases" class="section">
         <div class="container">
             <div class="section-heading">
                 <p class="eyebrow"><?php echo $t['classes_eyebrow']; ?></p>
                 <h2><?php echo $t['classes_title']; ?></h2>
             </div>
-            <div class="class-grid">
-                <article class="class-card">
-                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=80" alt="Clase de fuerza">
-                    <div class="card-body">
+            <div class="class-pillar-list">
+                <article class="class-pillar-card">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1600&q=85" alt="Clase de fuerza">
+                    <div class="class-pillar-card__content">
                         <h3><?php echo $t['class_strength_title']; ?></h3>
-                        <p><?php echo $t['class_strength_text']; ?></p>
+                        <p class="class-pillar-card__lead"><?php echo $t['class_strength_lead']; ?></p>
+                        <div class="class-pillar-card__copy">
+                            <p><?php echo $t['class_strength_text_1']; ?></p>
+                            <p><?php echo $t['class_strength_text_2']; ?></p>
+                        </div>
                     </div>
                 </article>
-                <article class="class-card">
-                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1000&q=80" alt="Clase de movimiento">
-                    <div class="card-body">
+                <article class="class-pillar-card">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1600&q=85" alt="Clase de movimiento">
+                    <div class="class-pillar-card__content">
                         <h3><?php echo $t['class_move_title']; ?></h3>
-                        <p><?php echo $t['class_move_text']; ?></p>
+                        <p class="class-pillar-card__lead"><?php echo $t['class_move_lead']; ?></p>
+                        <div class="class-pillar-card__copy">
+                            <p><?php echo $t['class_move_text_1']; ?></p>
+                            <p><?php echo $t['class_move_text_2']; ?></p>
+                            <p><?php echo $t['class_move_text_3']; ?></p>
+                        </div>
                     </div>
                 </article>
-                <article class="class-card">
-                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=80" alt="Práctica de handstand">
-                    <div class="card-body">
+                <article class="class-pillar-card">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=85" alt="Práctica de handstand">
+                    <div class="class-pillar-card__content">
                         <h3><?php echo $t['class_handstand_title']; ?></h3>
-                        <p><?php echo $t['class_handstand_text']; ?></p>
+                        <p class="class-pillar-card__lead"><?php echo $t['class_handstand_lead']; ?></p>
+                        <div class="class-pillar-card__copy">
+                            <p><?php echo $t['class_handstand_text_1']; ?></p>
+                            <p><?php echo $t['class_handstand_text_2']; ?></p>
+                            <p><?php echo $t['class_handstand_text_3']; ?></p>
+                        </div>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <section id="para-quien" class="section section-alt">
-        <div class="container split-layout reverse">
-            <div class="image-card">
-                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80" alt="Persona entrenando con enfoque">
+    <section id="respiracion" class="section breathing-section">
+        <div class="container breathing-layout">
+            <div class="breathing-copy">
+                <h2><?php echo $t['breathing_title']; ?></h2>
+                <p class="breathing-copy__lead"><?php echo $t['breathing_intro']; ?></p>
+                <p><?php echo $t['breathing_text_1']; ?></p>
+                <p><?php echo $t['breathing_text_2']; ?></p>
+                <p><?php echo $t['breathing_text_3']; ?></p>
+                <p><?php echo $t['breathing_text_4']; ?></p>
             </div>
-            <div class="section-copy">
-                <p class="eyebrow"><?php echo $t['audience_eyebrow']; ?></p>
-                <h2><?php echo $t['audience_title']; ?></h2>
-                <ul class="check-list">
-                    <li><?php echo $t['audience_item_1']; ?></li>
-                    <li><?php echo $t['audience_item_2']; ?></li>
-                    <li><?php echo $t['audience_item_3']; ?></li>
-                    <li><?php echo $t['audience_item_4']; ?></li>
-                </ul>
+            <div class="breathing-image">
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=85" alt="Persona practicando respiración consciente">
             </div>
         </div>
     </section>
 
-    <section id="filosofia" class="section">
-        <div class="container philosophy-block">
-            <div class="philosophy-copy">
-                <p class="eyebrow"><?php echo $t['philosophy_eyebrow']; ?></p>
-                <h2><?php echo $t['philosophy_title']; ?></h2>
-                <p><span class="text-accent"><?php echo $t['philosophy_text']; ?></span></p>
-            </div>
-            <div class="quote-card">
-                <p>“<?php echo $t['quote_text']; ?>”</p>
-            </div>
+    <section id="conocerte" class="section process-section process-section--soft">
+        <article class="intake-panel">
+                <div class="intake-panel__header">
+                    <h2><?php echo $t['intake_title']; ?></h2>
+                    <p><?php echo $t['intake_intro']; ?></p>
+                </div>
+                <div class="intake-panel__context">
+                    <p><?php echo $t['intake_context_label']; ?></p>
+                    <div class="intake-panel__tags" aria-label="<?php echo $t['intake_context_label']; ?>">
+                        <?php foreach ($t['intake_context_items'] as $item): ?>
+                            <span><?php echo $item; ?></span>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <div class="intake-panel__footer">
+                    <div>
+                        <p><?php echo $t['intake_text_1']; ?></p>
+                        <p class="intake-panel__question"><?php echo $t['intake_question_1']; ?></p>
+                        <p><?php echo $t['intake_text_2']; ?></p>
+                        <p class="intake-panel__question"><?php echo $t['intake_question_2']; ?></p>
+                    </div>
+                    <div>
+                        <p><?php echo $t['intake_text_3']; ?></p>
+                        <p><?php echo $t['intake_text_4']; ?></p>
+                        <p><?php echo $t['intake_text_5']; ?></p>
+                        <p><?php echo $t['intake_text_6']; ?></p>
+                    </div>
+                </div>
+            </article>
+    </section>
+
+    <section id="respuesta" class="section response-section">
+        <div class="container">
+            <article class="response-panel">
+                <div class="response-panel__header">
+                    <h2><?php echo $t['response_title']; ?></h2>
+                    <p><?php echo $t['response_intro']; ?></p>
+                </div>
+                <div class="response-panel__signals">
+                    <p><?php echo $t['response_text_1']; ?></p>
+                    <div class="response-panel__tags" aria-label="<?php echo $t['response_label']; ?>">
+                        <?php foreach ($t['response_items'] as $item): ?>
+                            <span><?php echo $item; ?></span>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <div class="response-panel__footer">
+                    <p><?php echo $t['response_text_2']; ?></p>
+                    <div>
+                        <p><?php echo $t['response_text_3']; ?></p>
+                        <p class="response-panel__question"><?php echo $t['response_question']; ?></p>
+                        <p><?php echo $t['response_text_4']; ?></p>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
 
-    <section id="cierre" class="section cta-section">
+    <section id="atencion-real" class="section response-section response-section--soft">
+        <div class="container">
+            <article class="response-panel">
+                <div class="response-panel__header">
+                    <h2><?php echo $t['attention_title']; ?></h2>
+                    <p><?php echo $t['attention_intro']; ?></p>
+                </div>
+                <div class="response-panel__signals">
+                    <p><?php echo $t['attention_label']; ?></p>
+                    <div class="response-panel__tags" aria-label="<?php echo $t['attention_label']; ?>">
+                        <?php foreach ($t['attention_items'] as $item): ?>
+                            <span><?php echo $item; ?></span>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <div class="response-panel__footer">
+                    <p><?php echo $t['attention_text_1']; ?></p>
+                    <p><?php echo $t['attention_text_2']; ?></p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="eventos" class="section response-section response-section--dark">
+        <div class="container">
+            <article class="response-panel response-panel--dark">
+                <div class="response-panel__header">
+                    <h2><?php echo $t['events_title']; ?></h2>
+                    <p><?php echo $t['events_intro']; ?></p>
+                    <p class="response-panel__context"><?php echo $t['events_label']; ?></p>
+                </div>
+                <div class="response-panel__signals">
+                    <div class="response-panel__tags" aria-label="<?php echo $t['events_label']; ?>">
+                        <?php foreach ($t['events_items'] as $item): ?>
+                            <span><?php echo $item; ?></span>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="longevidad" class="section response-section">
+        <div class="container">
+            <article class="response-panel">
+                <div class="response-panel__header">
+                    <h2><?php echo $t['longevity_title']; ?></h2>
+                    <p><?php echo $t['longevity_intro']; ?></p>
+                </div>
+                <div class="response-panel__signals">
+                    <p><?php echo $t['longevity_label']; ?></p>
+                    <div class="response-panel__tags" aria-label="<?php echo $t['longevity_label']; ?>">
+                        <?php foreach ($t['longevity_items'] as $item): ?>
+                            <span><?php echo $item; ?></span>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <div class="response-panel__footer">
+                    <p><?php echo $t['longevity_text_1']; ?></p>
+                    <p><?php echo $t['longevity_text_2']; ?></p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- <section id="cierre" class="section cta-section">
         <div class="container cta-box">
             <h2><?php echo $t['cta_title']; ?></h2>
             <p><?php echo $t['cta_text']; ?></p>
             <a href="mailto:paya.diego@gmail.com" class="btn btn--dark"><?php echo $t['cta_button']; ?></a>
         </div>
-    </section>
+    </section> -->
 </main>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>
